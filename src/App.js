@@ -13,6 +13,11 @@ function Counter(props) {
         setCount(count - 1);
     }
 
+    const isAppleDevice = () => /Mac|iPod|iPhone|iPad/.test(navigator.userAgent)
+    console.log(isAppleDevice());
+
+    // isAppleDevice() // true or false
+
     return(
         <div style={{textAlign: 'center'}}>
             <h3>Counter App</h3>
@@ -20,6 +25,9 @@ function Counter(props) {
                 <Button variant="contained" onClick={increment}>+</Button>
                 <span> {count} </span>
                 <Button variant="contained" onClick={decrement}>-</Button>
+            </div>
+            <div style={{ marginBottom: 10 }}>
+            {isAppleDevice() ? 'Apple Device' : 'Not Apple Device'}
             </div>
             <TextField fullWidth label="fullWidth" id="fullWidth" />
         </div>
